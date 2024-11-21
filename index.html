@@ -77,6 +77,7 @@
         <h1>Modals</h1>
         <button onclick="Telegram.WebApp.showAlert('Hello World!');">Launch Alert</button>
         <button onclick="showPopup();">Launch Popup</button>
+        <button onclick="requestEmojiStatusAccess();">Request Access</button>
 
         <h1>Links</h1>
         <ul>
@@ -111,14 +112,16 @@
         });
 
         // Request Emoji Status Access
-        Telegram.WebApp.requestEmojiStatusAccess()
-            .then(response => {
-                console.log('Access granted:', response);
-                Telegram.WebApp.showAlert('Access granted');
-            })
-            .catch(error => {
-                console.error('Error requesting access:', error);
-            });
+        function requestEmojiStatusAccess() {
+            Telegram.WebApp.requestEmojiStatusAccess()
+                .then(response => {
+                    console.log('Access granted:', response);
+                    Telegram.WebApp.showAlert('Access granted');
+                })
+                .catch(error => {
+                    console.error('Error requesting access:', error);
+                });
+        }
 
         // Show main button
         Telegram.WebApp.MainButton.setParams({
